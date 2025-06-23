@@ -1,0 +1,300 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
+
+*{
+	box-sizing: border-box;
+}
+body{
+    font-family: 'Smythe', sans-serif;
+    width: auto;
+    height: auto;
+	align-items: center;
+	display: flex;
+	justify-content:center;
+	flex-direction: column;
+	background: transparent;
+	min-height: 100%;
+    margin-top: 2%;
+}
+.container{
+	position: relative;
+	width: 968px;
+	max-width: 100%;
+	min-height: 550px;
+	background: #ffffff;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+				0 10px 10px rgba(0,0,0,0.22);
+    z-index: 1;
+}
+
+.overlay-container .overlay-left img{
+    width: 50px;
+    border-radius: 6px;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.overlay-container .overlay-right img{
+    width: 50px;
+    border-radius: 6px;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.sign-up, .sign-in{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+.sign-up{
+	width: 50%; 
+	opacity: 0;
+	z-index: 1
+}
+.sign-in{
+	width: 50%;
+	z-index: 2;
+}
+
+
+
+form {
+	background: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+    border-radius: 20px;
+	text-align: center;
+}
+
+
+h1{
+	font-weight: bold;
+	margin: 0;
+    font-family: "Slackey", sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 0px 0px 4px #00000043;
+}
+p{
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 15px 0 20px;
+    font-family: "Smythe", sans-serif;
+}
+input{
+	background: #eee;
+	padding: 10px 5px;
+	margin: 8px 15px;
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+}
+
+select{
+	background: #eee;
+	padding: 12px 15px;
+	margin: 8px 15px;
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+}
+a{
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+button{
+	color: #fff;
+	background: #ff4b2b;
+	font-size: 12px;
+	font-weight: bold;
+	font-family: 'Slackey', sans-serif;
+	padding: 12px 35px;
+	margin: 10px;
+	border-radius: 19px;
+	border: 1px solid #ff4b2b;
+	outline: none;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+	cursor: pointer;
+}
+button:active{
+	transform: scale(0.90);   
+}
+
+button:hover{
+    box-shadow: 0 0 10px #f05c34,
+    0 0 10px #f05c34;
+}
+
+#signIn, #signUp{
+	background-color: transparent;
+	border: 2px solid #fff;
+}
+.container.right-panel-active .sign-in{
+	transform: translateX(100%);
+}
+.container.right-panel-active .sign-up{
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s;
+}
+@keyframes show{
+	0%, 49.99%{
+		opacity: 0;
+		z-index: 1;
+	}
+	50%, 100%{
+		opacity: 1;
+		z-index: 5;
+	}
+}
+.overlay-container{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+.container.right-panel-active .overlay-container{
+	transform: translateX(-100%);
+}
+.overlay{
+	position: relative;
+	color: #fff;
+	background: #FF5628;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+	background: linear-gradient(135deg, #FF5628, #FF5628, #FF7A57, #FF8C12);
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+.container.right-panel-active .overlay{
+	transform: translateX(50%);
+}
+.overlay-left, .overlay-right{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+    border-radius: 20px;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+.overlay-left{
+	transform: translateX(-20%);
+}
+.overlay-right{
+	right: 0;
+	transform: translateX(0);
+}
+.container.right-panel-active .overlay-left{
+	transform: translateX(0);
+}
+.container.right-panel-active .overlay-right{
+	transform: translateX(20%);
+}
+.social-container{
+	margin: 5px;
+}
+.social-container a{
+	height: 40px;
+	width: 40px;
+	margin: 0 5px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	border-radius: 50%;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensure images do not overflow the slider */
+    z-index: -1;
+    display: flex;
+}
+
+.list {
+    display: flex;
+    transition: transform 1s ease; /* Smooth transition when switching images */
+    width: 100%; /* Use 100% width for the list */
+}
+
+.list .item {
+    min-width: 100%; /* Each item should take up the full width of the slider */
+    height: 100%; /* Ensure each item has the same height */
+}
+
+.list img {
+    width: 100%; /* Each image should take up the full width of its container */
+    height: 100%; /* Ensure each image covers its container */
+    object-fit: cover; /* Maintain aspect ratio while covering the container */
+}
+
+
+/* Adding automatic animation */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    45% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    70% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    95% { transform: translateX(-300%); }
+    100% { transform: translateX(0); } /* Return to start */
+}
+
+.slider .list {
+    animation: slide 30s infinite; /* Continuous animation */
+}
+
+/* icon */
+.flat-color-icons--google {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23ffc107' d='M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917'/%3E%3Cpath fill='%23ff3d00' d='m6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691'/%3E%3Cpath fill='%234caf50' d='M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.9 11.9 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44'/%3E%3Cpath fill='%231976d2' d='M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917'/%3E%3C/svg%3E");
+}
+.grommet-icons--facebook-option {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230082ff' fill-rule='evenodd' d='M9.945 22v-8.834H7V9.485h2.945V6.54c0-3.043 1.926-4.54 4.64-4.54c1.3 0 2.418.097 2.744.14v3.18h-1.883c-1.476 0-1.82.703-1.82 1.732v2.433h3.68l-.736 3.68h-2.944L13.685 22'/%3E%3C/svg%3E");
+  }
