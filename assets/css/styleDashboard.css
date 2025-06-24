@@ -11,7 +11,7 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background: linear-gradient(135deg, #000000,#0a0805,#1e160e,#1f170f,#3b2c1d, #744617, #FF8C12, #A67C54, #383a41);
-  color: #fff;
+  color: #000000;
 }
 
 /* Sidebar*/
@@ -48,7 +48,8 @@ a{
   color: #ffffff;
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 15px;
+  letter-spacing: 3px;
 }
 
 a:hover{
