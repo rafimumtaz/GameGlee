@@ -19,6 +19,10 @@ body {
     text-decoration: none;
 }
 
+span.d-none{
+  font-size: 16px !important;
+  letter-spacing: 1px !important;
+}
 /* Sidebar*/
 .sidebar {
   margin-top: 15px;
