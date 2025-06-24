@@ -77,7 +77,7 @@ $row_user = mysqli_fetch_array($kue_user);
         <li>
           <a href="profil.php"  data-bs-toggle="dropdown">
             <span class="d-none d-md-block dropdown-toggle ps-2">
-              <i class="bi bi-person"></i>Halo, <?//= $_SESSION["user"] ?>!
+              <i class="bi bi-person"></i>Halo, <?= $_SESSION["user"] ?>!
             </span>
           </a>
         </li>
