@@ -10,9 +10,10 @@ if (!isset($_SESSION['user'])) {
 }
 
 // Query untuk mengambil data pesanan dengan status 'Dibatalkan'
-$query = "SELECT p.*, pr.nama_produk, pr.harga, pr.gambar 
-          FROM pesanan p
-          JOIN produk pr ON p.id_produk = pr.id_produk
+$query = "SELECT pd.*, p.*, pr.nama_produk, pr.harga, pr.gambar 
+          FROM pesanan_detail pd
+          JOIN produk pr ON pd.id_produk = pr.id_produk
+          JOIN pesanan p ON pd.id_pesanan = p.id_pesanan
           WHERE p.status_pesanan = 'Diproses'";
 
 $result = $kon->query($query);
@@ -150,7 +151,7 @@ $pesanan = $result->fetch_all(MYSQLI_ASSOC);
                     <div class="ms-auto text-end">
                         <p>IDR <?php echo number_format($row['harga'], 0, ',', '.'); ?></p>
                         <p>Total: IDR <?php echo number_format($row['total_harga'], 0, ',', '.'); ?></p>
-                        <a href="pembayaran.php?id_produk=<?php echo $row['id_produk']; ?>" class="btn btn-orange">Beli Lagi</a>
+                        <a href="checkout.php?id_produk=<?php echo $row['id_produk']; ?>" class="btn btn-orange">Beli Lagi</a>
                     </div>
                 </div>
             <?php endforeach; ?>

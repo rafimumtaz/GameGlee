@@ -2,8 +2,9 @@
 session_start();
 include('../db.php');
 
+$page = "keranjang";
 if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit();
 }
 
@@ -11,23 +12,20 @@ $userName = $_SESSION['user'];
 
 $kue_user = mysqli_query($kon, "SELECT * FROM user WHERE nama = '$userName'");
 $row_user = mysqli_fetch_array($kue_user);
-$user_id = $row_user['id_user']; 
+$user_id = $row_user['id_user'];
 
 // Add product to cart
 if (isset($_POST['add_to_cart'])) {
     $product_id = $_POST['product_id'];
-    $jumlah = 1; 
+    $jumlah = 1;
 
-    // Check if product already exists in the cart
     $query_check = "SELECT * FROM keranjang WHERE user_id = '$user_id' AND id_produk = '$product_id'";
     $result_check = mysqli_query($kon, $query_check);
 
     if (mysqli_num_rows($result_check) > 0) {
-        // Update quantity if product already exists
         $query_update = "UPDATE keranjang SET jumlah = jumlah + $jumlah WHERE user_id = '$user_id' AND id_produk = '$product_id'";
         mysqli_query($kon, $query_update);
     } else {
-        // Add new product to cart
         $query_insert = "INSERT INTO keranjang (user_id, id_produk, jumlah) VALUES ('$user_id', '$product_id', '$jumlah')";
         mysqli_query($kon, $query_insert);
     }
@@ -41,47 +39,56 @@ if (isset($_POST['update_quantity'])) {
     $cart_id = $_POST['cart_id'];
     $new_quantity = $_POST['quantity'];
 
-    if ($new_quantity <= 0) {
+    $response = [];
+
+    $stock_query = mysqli_query($kon, "SELECT p.stok FROM produk p JOIN keranjang k ON p.id_produk = k.id_produk WHERE k.id_keranjang = '$cart_id'");
+    $product_data = mysqli_fetch_assoc($stock_query);
+    $stok_produk = $product_data['stok'];
+
+    if ($new_quantity > $stok_produk) {
+        $response = ['error' => 'Stok tidak mencukupi. Sisa stok: ' . $stok_produk, 'current_quantity' => $stok_produk];
+        $sql = "UPDATE keranjang SET jumlah = '$stok_produk' WHERE id_keranjang = '$cart_id'";
+        mysqli_query($kon, $sql);
+    } elseif ($new_quantity <= 0) {
         $sql = "DELETE FROM keranjang WHERE id_keranjang = '$cart_id'";
         mysqli_query($kon, $sql);
-        echo json_encode(['action' => 'removed']);  // Respond that the item was removed
-        exit();
+        $response = ['action' => 'removed'];
     } else {
         $sql = "UPDATE keranjang SET jumlah = '$new_quantity' WHERE id_keranjang = '$cart_id'";
         mysqli_query($kon, $sql);
+        
+        $query_total = "SELECT k.jumlah, p.harga FROM keranjang k JOIN produk p ON k.id_produk = p.id_produk WHERE k.id_keranjang = '$cart_id'";
+        $result_total = mysqli_query($kon, $query_total);
+        $item = mysqli_fetch_assoc($result_total);
+        $updated_total = $item ? $item['jumlah'] * $item['harga'] : 0;
+        $response = ['item_total' => $updated_total];
     }
-
-    // Calculate updated total for the item
-    $query_total = "SELECT k.jumlah, p.harga FROM keranjang k 
-                    JOIN produk p ON k.id_produk = p.id_produk 
-                    WHERE k.id_keranjang = '$cart_id'";
-    $result_total = mysqli_query($kon, $query_total);
-    $item = mysqli_fetch_assoc($result_total);
-
-    $updated_total = $item ? $item['jumlah'] * $item['harga'] : 0;
-
-    echo json_encode(['item_total' => $updated_total]);
+    
+    echo json_encode($response);
     exit();
 }
+
 
 // Remove item from cart
 if (isset($_POST['remove_item'])) {
     $cart_id = $_POST['cart_id'];
     $sql = "DELETE FROM keranjang WHERE id_keranjang = '$cart_id'";
     mysqli_query($kon, $sql);
-
-    // After successful deletion, return JSON response
-    echo json_encode(['action' => 'removed']);  // Respond that the item was removed
+    echo json_encode(['action' => 'removed']);
     exit();
 }
 
 // Get the products in the cart
-$cartItems = mysqli_query($kon, "SELECT k.*, p.nama_produk, p.harga, p.gambar 
-    FROM keranjang k 
-    JOIN produk p ON k.id_produk = p.id_produk 
-    WHERE k.user_id = $user_id");
+$cartItems = mysqli_query($kon, "SELECT k.*, p.nama_produk, p.harga, p.gambar, p.stok FROM keranjang k JOIN produk p ON k.id_produk = p.id_produk WHERE k.user_id = $user_id");
 
-$row_keranjang = ($cartItems && mysqli_num_rows($cartItems) > 0);
+// Check if cart has items
+$has_items = ($cartItems && mysqli_num_rows($cartItems) > 0);
+
+if (isset($_POST['checkout']) && isset($_POST['selected_items'])) {
+    $_SESSION['checkout_cart_ids'] = $_POST['selected_items'];
+    header("Location: checkout.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -171,7 +178,7 @@ $row_keranjang = ($cartItems && mysqli_num_rows($cartItems) > 0);
         </div>
 
         <div class="container mt-5">
-            <?php if ($row_keranjang): ?>
+            <?php if ($has_items): ?>
                 <form method="POST" action="checkout.php">
                     <table class="table table-bordered">
                         <thead>

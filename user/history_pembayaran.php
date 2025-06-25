@@ -42,13 +42,14 @@ $sql = "SELECT DISTINCT p.id_pesanan, p.total_harga, p.status_pesanan, p.tanggal
         pb.metode_pembayaran, pb.status_pembayaran, 
         pg.alamat_pengiriman, pg.nomor_resi, pg.nama_kurir, pg.tanggal_kirim, pg.perkiraan_tiba,
         pr.nama_produk, pr.harga AS harga_produk, pr.gambar,
-        p.jumlah AS jumlah_produk,
+        pd.jumlah AS jumlah_produk,
         r.id_pesanan AND r.id_review AS sudah_dinilai
-        FROM pesanan p
-        LEFT JOIN pembayaran pb ON p.id_pesanan = pb.id_pesanan
+        FROM pesanan_detail pd
+        JOIN pesanan p ON pd.id_pesanan = p.id_pesanan
+        LEFT JOIN pembayaran pb ON pd.id_pesanan = pb.id_pesanan
         LEFT JOIN pengiriman_pesanan pg ON p.id_pesanan = pg.id_pesanan
-        LEFT JOIN produk pr ON p.id_produk = pr.id_produk
-        LEFT JOIN review_produk r ON p.id_user = r.id_user AND p.id_produk = r.id_produk AND p.id_pesanan = r.id_pesanan
+        LEFT JOIN produk pr ON pd.id_produk = pr.id_produk
+        LEFT JOIN review_produk r ON p.id_user = r.id_user AND pd.id_produk = r.id_produk AND p.id_pesanan = r.id_pesanan
         WHERE p.id_user = ? 
         $dateQuery
         GROUP BY p.id_pesanan

@@ -10,8 +10,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background: linear-gradient(135deg, #000000,#0a0805,#1e160e,#1f170f,#3b2c1d, #744617, #FF8C12, #A67C54, #383a41);
-  color: #000000;
+  background: linear-gradient(135deg, #000000,#0a0805,#1e160e,#1f170f,#3b2c1d, #744617, #FF8C12, #A67C54, #383a41) !important;
+  color: #fff !important;
 }
 
 /* Sidebar*/

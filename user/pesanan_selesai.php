@@ -17,12 +17,13 @@ if (!is_array($status_filter)) {
 }
 
 // Query untuk mengambil data pesanan berdasarkan filter
-$query = "SELECT p.*, pr.nama_produk, pr.harga, pr.gambar, 
+$query = "SELECT p.*, pd.*, pr.nama_produk, pr.harga, pr.gambar, 
                  CASE WHEN EXISTS (
                      SELECT 1 FROM review_produk r WHERE r.id_pesanan = p.id_pesanan
                  ) THEN 'Sudah Dinilai' ELSE 'Menunggu Dinilai' END AS review_status
-          FROM pesanan p
-          JOIN produk pr ON p.id_produk = pr.id_produk
+          FROM pesanan_detail pd
+          JOIN produk pr ON pd.id_produk = pr.id_produk
+          JOIN pesanan p ON pd.id_pesanan = p.id_pesanan
           WHERE p.status_pesanan = 'Selesai'";
 
 if (!empty($status_filter)) {

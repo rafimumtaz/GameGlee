@@ -1,6 +1,6 @@
-<!-- Favicons -->
-<link href="../assets/img/favicon.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Favicons -->
+  <link href="../assets/img/Logo_GG2.png" rel="icon">
+  <link href="../assets/img/Logo_GG2.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">

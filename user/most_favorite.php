@@ -11,9 +11,9 @@ if (!isset($_SESSION['user'])) {
 
 // Query untuk mendapatkan produk yang paling banyak dibeli
 $query = "SELECT produk.id_produk, produk.nama_produk, produk.deskripsi, produk.harga, produk.gambar, 
-                 SUM(pesanan.jumlah) AS total_dibeli
+                 SUM(pesanan_detail.jumlah) AS total_dibeli
           FROM produk
-          JOIN pesanan ON produk.id_produk = pesanan.id_produk
+          JOIN pesanan_detail ON produk.id_produk = pesanan_detail.id_produk
           GROUP BY produk.id_produk
           HAVING total_dibeli > 10
           ORDER BY total_dibeli DESC";

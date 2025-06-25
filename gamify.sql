@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2025 at 01:18 PM
+-- Generation Time: Jun 25, 2025 at 03:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -107,6 +107,13 @@ CREATE TABLE `keranjang` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `keranjang`
+--
+
+INSERT INTO `keranjang` (`id_keranjang`, `user_id`, `id_produk`, `jumlah`, `created_at`, `updated_at`) VALUES
+(63, 8, 3, 2, '2025-06-25 20:49:54', '2025-06-25 20:49:58');
 
 -- --------------------------------------------------------
 
@@ -322,13 +329,8 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_pembayaran`, `id_pesanan`, `metode_pembayaran`, `status_pembayaran`, `tanggal_pembayaran`) VALUES
-(37, 41, 'Transfer Bank', 'Dibayar', '2024-12-17 17:54:53'),
-(38, 42, 'Kartu Kredit', 'Dibayar', '2024-12-18 17:21:08'),
-(39, 43, 'Kartu Kredit', 'Dibayar', '2024-12-18 17:21:55'),
-(40, 44, 'Kartu Kredit', 'Dibayar', '2024-12-18 17:27:17'),
-(41, 45, 'Transfer Bank', 'Dibayar', '2024-12-18 17:40:59'),
-(42, 46, 'Transfer Bank', 'Dibayar', '2024-12-18 17:51:22'),
-(43, 47, 'COD', 'Dibayar', '2024-12-18 18:01:10');
+(70, 25, 'Transfer Bank', 'Dibayar', '2025-06-25 20:46:29'),
+(71, 26, 'Transfer Bank', 'Dibayar', '2025-06-25 20:48:31');
 
 -- --------------------------------------------------------
 
@@ -357,13 +359,8 @@ CREATE TABLE `pengiriman_pesanan` (
 --
 
 INSERT INTO `pengiriman_pesanan` (`id_pengiriman`, `id_pesanan`, `id_user`, `nomor_resi`, `nama_kurir`, `alamat_pengiriman`, `tanggal_kirim`, `perkiraan_tiba`, `tanggal_tiba`, `status_pengiriman`, `biaya_kirim`, `dibuat_pada`, `diperbarui_pada`) VALUES
-(37, 41, 2, 'RSI20241217115453184', 'J&T', 'Koperindag Blok C No 3', '2024-12-17 11:54:53', '2024-12-20 11:54:53', NULL, 'dalam_pengiriman', 20000.00, '2024-12-17 10:54:53', '2024-12-17 10:54:53'),
-(38, 42, 2, 'RSI20241218112108107', 'JNE', 'Koperindag Blok C No 3', '2024-12-18 11:21:08', '2024-12-21 11:21:08', NULL, 'dalam_pengiriman', 20000.00, '2024-12-18 10:21:08', '2024-12-18 10:21:08'),
-(39, 43, 2, 'RSI20241218112155840', 'J&T', 'Koperindag Blok C No 3', '2024-12-18 11:21:55', '2024-12-21 11:21:55', NULL, 'dalam_pengiriman', 20000.00, '2024-12-18 10:21:55', '2024-12-18 10:21:55'),
-(40, 44, 2, 'RSI20241218112717277', 'SiCepat', 'Koperindag Blok C No 3', '2024-12-18 11:27:17', '2024-12-21 11:27:17', NULL, 'dalam_pengiriman', 20000.00, '2024-12-18 10:27:17', '2024-12-18 10:27:17'),
-(41, 45, 2, 'RSI20241218114059775', 'Pos Indonesia', 'Koperindag Blok C No 3', '2024-12-18 11:40:59', '2024-12-21 11:40:59', NULL, 'dalam_pengiriman', 20000.00, '2024-12-18 10:40:59', '2024-12-18 10:40:59'),
-(42, 46, 2, 'RSI20241218115122358', 'Pos Indonesia', 'Koperindag Blok C No 3', '2024-12-18 11:51:22', '2024-12-21 11:51:22', NULL, 'dalam_pengiriman', 20000.00, '2024-12-18 10:51:22', '2024-12-18 10:51:22'),
-(43, 47, 2, 'RSI20241218120110807', 'Pos Indonesia', 'Koperindag Blok C No 3', '2024-12-18 12:01:10', '2024-12-21 12:01:10', NULL, 'dalam_pengiriman', 20000.00, '2024-12-18 11:01:10', '2024-12-18 11:01:10');
+(67, 25, 8, 'RSI20250625154629773', 'Pos Indonesia', 'Koperindag Blok C No 3', '2025-06-25 20:46:29', '2025-06-28 20:46:29', NULL, 'dalam_pengiriman', 1250000.00, '2025-06-25 13:46:29', '2025-06-25 13:46:29'),
+(68, 26, 8, 'RSI20250625154831540', 'Pos Indonesia', 'Koperindag Blok C No 3', '2025-06-25 20:48:31', '2025-06-28 20:48:31', NULL, 'dalam_pengiriman', 50000.00, '2025-06-25 13:48:31', '2025-06-25 13:48:31');
 
 -- --------------------------------------------------------
 
@@ -374,13 +371,43 @@ INSERT INTO `pengiriman_pesanan` (`id_pengiriman`, `id_pesanan`, `id_user`, `nom
 CREATE TABLE `pesanan` (
   `id_pesanan` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_produk` int(11) NOT NULL,
-  `jumlah` int(64) NOT NULL,
-  `tanggal_pesanan` datetime DEFAULT current_timestamp(),
+  `tanggal_pesanan` date DEFAULT current_timestamp(),
   `status_pesanan` enum('Menunggu Pembayaran','Diproses','Dikirim','Selesai','Dibatalkan') DEFAULT 'Menunggu Pembayaran',
   `total_harga` decimal(10,2) NOT NULL,
+  `sudah_dinilai` int(11) DEFAULT NULL,
   `notifikasi_status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pesanan`
+--
+
+INSERT INTO `pesanan` (`id_pesanan`, `id_user`, `tanggal_pesanan`, `status_pesanan`, `total_harga`, `sudah_dinilai`, `notifikasi_status`) VALUES
+(25, 8, '2025-06-25', 'Diproses', 13450000.00, NULL, 0),
+(26, 8, '2025-06-25', 'Diproses', 250000.00, NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pesanan_detail`
+--
+
+CREATE TABLE `pesanan_detail` (
+  `id_pesanan_detail` int(11) NOT NULL,
+  `id_produk` int(11) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `subtotal` int(11) DEFAULT NULL,
+  `id_pesanan` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pesanan_detail`
+--
+
+INSERT INTO `pesanan_detail` (`id_pesanan_detail`, `id_produk`, `jumlah`, `subtotal`, `id_pesanan`) VALUES
+(26, 2, 2, 12000000, 25),
+(27, 3, 1, 500000, 25),
+(28, 3, 1, 500000, 26);
 
 -- --------------------------------------------------------
 
@@ -405,8 +432,8 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `deskripsi`, `harga`, `stok`, `id_kategori`, `created_at`, `updated_at`, `gambar`) VALUES
-(2, 'XBOX Series X', 'Xbox ', 6000000.00, 600, 5, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Xbox Series X - 1TB Digital Edition (White).png'),
-(3, 'Dualshock Controller', 'Controller Dual Shock Terbaru', 500000.00, 121, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PS 5DualSense Wireless Controller.png'),
+(2, 'XBOX Series X', 'Xbox ', 6000000.00, 598, 5, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Xbox Series X - 1TB Digital Edition (White).png'),
+(3, 'Dualshock Controller', 'Controller Dual Shock Terbaru', 500000.00, 119, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PS 5DualSense Wireless Controller.png'),
 (5, 'Playstasion 5', 'PLaystation 5 ORI', 5000000.00, 500, 5, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '685915e91100d_PS 5.jpg'),
 (6, 'Nintendo Switch', 'Nintendo Switch ORI', 3000000.00, 500, 5, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '6859161f1fc7a_Nintendo Switch™ -OLED Model.jpg');
 
@@ -434,7 +461,7 @@ INSERT INTO `promo` (`id`, `code`, `discount_type`, `discount_value`, `usage_lim
 (10, 'IVRKH', 'percentage', 50.00, 0, 20, '2024-12-17 06:17:10'),
 (11, 'ESOUK', 'fixed', 15000.00, 0, 20, '2024-12-17 06:17:23'),
 (12, 'ACD5Y', 'fixed', 15000.00, 0, 20, '2024-12-17 06:28:02'),
-(13, '2HSLK', 'fixed', 300000.00, 105, 45, '2024-12-19 13:19:49'),
+(13, '2HSLK', 'fixed', 300000.00, 103, 47, '2024-12-19 13:19:49'),
 (14, '14J60', 'fixed', 200000.00, 39, 11, '2024-12-19 19:25:10');
 
 -- --------------------------------------------------------
@@ -524,7 +551,8 @@ INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `no_tlp`, `alamat`, 
 (2, 'Tria Yunita Krismiyanto', 'triayunita07@gmail.com', '123', '0888883838383', 'Bangkalan Halim Perdana Kusuma 2\r\n', 'user', '1734507541_messages-2.jpg', '2024-12-20 16:50:56'),
 (5, 'Tria Krismiyanto Yunita', 'triayunita02@gmail.com', '123', '08587617989', 'Koperindag Blok C No 3', 'user', '', '2024-12-18 13:48:06'),
 (6, 'asep prayogi', 'asepyogi@gmail.com', '123', '123456', 'Medan', 'user', '', '2024-12-20 00:41:38'),
-(7, 'jauhari', 'jauhari@gmail.com', '123', '085311999046', 'Koperindag Blok C No 3', 'user', '1750668866_messages-3.jpg', '2025-06-23 15:54:03');
+(7, 'jauhari', 'jauhari@gmail.com', '123', '085311999046', 'Koperindag Blok C No 3', 'user', '1750668866_messages-3.jpg', '2025-06-23 15:54:03'),
+(8, 'rafi', 'rafi@gmail.com', '123', '085311999046', 'Koperindag Blok C No 3', 'user', '', '2025-06-25 19:16:37');
 
 -- --------------------------------------------------------
 
@@ -653,8 +681,15 @@ ALTER TABLE `pengiriman_pesanan`
 --
 ALTER TABLE `pesanan`
   ADD PRIMARY KEY (`id_pesanan`) USING BTREE,
-  ADD KEY `id_produk` (`id_produk`),
   ADD KEY `id_user` (`id_user`) USING BTREE;
+
+--
+-- Indexes for table `pesanan_detail`
+--
+ALTER TABLE `pesanan_detail`
+  ADD PRIMARY KEY (`id_pesanan_detail`),
+  ADD KEY `id_produk` (`id_produk`),
+  ADD KEY `id_pesanan` (`id_pesanan`);
 
 --
 -- Indexes for table `produk`
@@ -737,7 +772,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `komentar`
@@ -773,19 +808,25 @@ ALTER TABLE `pembatalan_pesanan`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `pengiriman_pesanan`
 --
 ALTER TABLE `pengiriman_pesanan`
-  MODIFY `id_pengiriman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id_pengiriman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `pesanan_detail`
+--
+ALTER TABLE `pesanan_detail`
+  MODIFY `id_pesanan_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `produk`
@@ -815,7 +856,7 @@ ALTER TABLE `topik`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user_promo_codes`
@@ -850,28 +891,26 @@ ALTER TABLE `komunitas`
 -- Constraints for table `pembatalan_pesanan`
 --
 ALTER TABLE `pembatalan_pesanan`
-  ADD CONSTRAINT `pembatalan_pesanan_ibfk_1` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`),
   ADD CONSTRAINT `pembatalan_pesanan_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
-
---
--- Constraints for table `pembayaran`
---
-ALTER TABLE `pembayaran`
-  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pengiriman_pesanan`
 --
 ALTER TABLE `pengiriman_pesanan`
-  ADD CONSTRAINT `pengiriman_pesanan_ibfk_1` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pengiriman_pesanan_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `pesanan_detail`
+--
+ALTER TABLE `pesanan_detail`
+  ADD CONSTRAINT `pesanan_detail_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`),
+  ADD CONSTRAINT `pesanan_detail_ibfk_2` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`);
 
 --
 -- Constraints for table `produk`

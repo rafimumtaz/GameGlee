@@ -9,8 +9,9 @@ body {
   font-family: 'Smythe', sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-position: center center;
-  background: linear-gradient(135deg, #000000,#0a0805,#1e160e,#1f170f,#3b2c1d, #744617, #FF8C12, #A67C54, #383a41);
+  background: linear-gradient(135deg, #000000,#0a0805,#1e160e,#1f170f,#3b2c1d, #744617, #FF8C12, #A67C54, #383a41) !important;
   color: #fff;
 }
 
@@ -31,12 +32,12 @@ span.d-none{
   left: 0;
   width: 260px;
   height: auto;
-  background: transparent;
-  background-color: transparent;
+  background: transparent !important;
+  background-color: transparent !important;
   padding: 10px 14px;
   flex-direction: column;
   justify-content: space-between;
-  color: #ffffff;
+  color: #ffffff !important;
   letter-spacing: 2px;
 }
 

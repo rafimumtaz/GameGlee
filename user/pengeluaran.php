@@ -24,10 +24,11 @@ $query = "SELECT
             produk.nama_produk, 
             pesanan.tanggal_pesanan, 
             produk.harga, 
-            pesanan.jumlah AS kuantitas, 
+            pesanan_detail.jumlah AS kuantitas, 
             pesanan.total_harga
-          FROM pesanan
-          JOIN produk ON pesanan.id_produk = produk.id_produk
+          FROM pesanan_detail
+          JOIN pesanan ON pesanan_detail.id_pesanan = pesanan.id_pesanan
+          JOIN produk ON pesanan_detail.id_produk = produk.id_produk
           WHERE pesanan.id_user = ?";
 $params = [$user_id];
 
