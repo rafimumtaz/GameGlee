@@ -254,18 +254,6 @@ if (isset($_POST['confirm_order'])) {
     <link href="../assets/img/Logo_GG2.png" rel="icon" sizes="48x48">
    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/styleProduk.css" rel="stylesheet">
@@ -278,12 +266,36 @@ if (isset($_POST['confirm_order'])) {
         #summary-card { position: sticky; top: 80px; }
         .summary-card .list-group-item { border: none; padding-left: 0; padding-right: 0; }
         .payment-method .form-check-label { width: 100%; border: 1px solid #dee2e6; padding: 1rem; border-radius: 0.375rem; cursor: pointer; transition: all 0.2s ease-in-out; }
-        .payment-method .form-check-input:checked + .form-check-label { border-color: #0d6efd; background-color: #e7f1ff; box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25); }
+        .payment-method .form-check-input:checked + .form-check-label { border-color: #f87117; background-color:rgb(255, 230, 176); box-shadow: 0 0 0 2px rgba(232, 153, 44, 0.25); }
         .payment-method .form-check-input { display: none; }
         #promo-feedback { font-size: 0.875em; }
         .btn-primary{
             background-color: #f87117 !important;
             border: hidden;
+        }
+        a.back{
+        text-decoration: none;
+        color: black;
+        background-color:rgba(0, 0, 0, 0.1);
+        padding: 10px 10px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+    label.form-check-label{
+        color: black !important;
+    }
+    h5.card-title{
+        color: black !important;
+    }
+        main{
+            margin-top: 100px !important;
+            margin-left: 50px !important;
+        }
+        h1{
+            font-family: "slackey", sans-serif;
+            font-size: 24px !important;
         }
         .sidebar {
             margin-top: 15px;
@@ -311,29 +323,6 @@ if (isset($_POST['confirm_order'])) {
             border: 1px solid transparent;
             color: #ffffff !important;
             background-color: #f89317 !important;
-        }
-         /* Styling untuk tombol kembali (baru) */
-        .standalone-back-button-container {
-            margin-bottom: 15px; /* Jarak bawah dari tombol kembali */
-            padding-left: 0px; /* Sesuaikan padding agar sejajar dengan konten */
-        }
-        .standalone-back-button {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none; 
-            color: #6c757d;
-            font-weight: 500;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: background-color 0.2s ease-in-out; 
-        }
-        .standalone-back-button:hover {
-            background-color: #e9ecef; 
-            color: #495057;
-        }
-        .standalone-back-button .bi {
-            font-size: 1.1em;
-            margin-right: 8px; 
         }
         div.fw-bold{
             font-size: 14px !important;
@@ -367,20 +356,50 @@ if (isset($_POST['confirm_order'])) {
     </ul>
     </header>
    </div>
-
+        
+  <!-- Main Content -->
+  <div class="topbar">
+      <div class="search-box">
+        <div class="dynamic-text">
+          <input type="text"/>
+          <span class="animated-text"></span>
+        </div>
+        <button class="close-button">X</button>
+        <span class="iconamoon--search"></span>
+      </div>
+      <div class="menu-nav">
+        <ul>
+          <li><a href="notifikasi.php"><span class="ic--outline-notifications"></span></a></li>
+          <li><a href="add_to_cart.php" class="active"><span class="solar--cart-outline"></span></a></li>
+          <li>
+            <a href="profil.php">
+            <span class="gg--profile"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="user-profile">
+      <ul>
+        <li>
+          <a href="profil.php"  data-bs-toggle="dropdown">
+            <span class="d-none d-md-block dropdown-toggle ps-2">
+              <i class="bi bi-person"></i>Halo, <?= $_SESSION["user"] ?>!
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
     <main id="main" class="main">
-        <a href="produk.php" class="standalone-back-button">
+        
+        <div class="pagetitle">
+            <h1><i class="bi bi-cart"></i>&nbsp; PEMBAYARAN</h1>
+            
+        </div>
+        <a href="add_to_cart.php" class="back">
                 <i class="bi bi-arrow-left"></i>
                 Kembali
             </a>
-        <div class="pagetitle">
-            <h1><i class="bi bi-cart"></i>&nbsp; PEMBAYARAN</h1>
-            <nav><ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">HOME</a></li>
-                <li class="breadcrumb-item"><a href="produk.php">PRODUK</a></li>
-                <li class="breadcrumb-item"><a href="add_to_cart.php">KERANJANG</a></li>
-            <li class="breadcrumb-item active">PEMBAYARAN</li></ol></nav>
-        </div>
 
         <section class="section">
             <?php if (!empty($error)): ?>
@@ -541,6 +560,7 @@ if (isset($_POST['confirm_order'])) {
     <script src="../assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
+        <script src="../assets/js/index.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>
 </html>

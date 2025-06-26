@@ -48,7 +48,7 @@ $query_topik = mysqli_query($kon, "
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameGlee's Community</title>
-  <link rel="stylesheet" href="../assets/css/styleDashboard.css">
+  <link rel="stylesheet" href="../assets/css/stylekomunitas.css">
   <link href="https://code.iconify.design/3/3.1.0/iconify.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <!-- Favicons -->

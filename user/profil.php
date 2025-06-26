@@ -205,7 +205,13 @@ if (!$user) {
             <h3>My Profile</h3>
             <p>admin</p>
         </div>
-        
+        <!-- START: Tampilkan notifikasi di sini -->
+            <?php if (!empty($notification_message)): ?>
+                <div class="alert-container">
+                    <?php echo $notification_message; ?>
+                </div>
+            <?php endif; ?>
+            <!-- END: Tampilkan notifikasi -->
         <div class="card-profile">
             <div class="row">
                 <div class="col-md-8 offset-md-2">

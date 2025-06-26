@@ -129,13 +129,13 @@ $cartSuccess = isset($_GET['cart_success']);
       <div><p>GAMEGLEE</p></div>
     </div>
     <ul>
-      <li><a href="index.php"><span class="humbleicons--dashboard"></span>DASHBOARD</a></li>
+      <li><a href="index.php" class="active"><span class="humbleicons--dashboard"></span>DASHBOARD</a></li>
       <li><a href="most_favorite.php"><span class="ph--list-heart"></span>MOST FAVORITE ITEM</a></li>
       <li><a href="informasipromo.php"><span class="tabler--discount"></span>PROMO</a></li>
       <li><a href="forum_komunitas.php"><span class="gg--community"></span>KOMUNITAS</a></li>
       <li><a href="feedback.php"><span class="mdi--feedback-outline"></span>FEEDBACK</a></li>
-      <li><a href="promo.php" ><span class="tabler--discount"></span>CODE PROMO</a></li>
-      <br><br><br><br>
+      <li><a href="promo.php"><span class="tabler--discount"></span>CODE PROMO</a></li>
+      <br><br><br>
       <li><a href="chat.php"><span class="tdesign--service"></span>CUSTOMER SERVICE</a></li>
       <li><a href="logout.php"><span class="tabler--logout"></span>LOGOUT</a></li>
     </ul>
@@ -176,9 +176,26 @@ $cartSuccess = isset($_GET['cart_success']);
       </ul>
     </div>
   </div>
+  <style>
+    a.back{
+        text-decoration: none;
+        color: black;
+        background-color:rgba(0, 0, 0, 0.1);
+        padding: 10px 10px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+    h1{
+        color: black !important;
+    }
+  </style>
   <main id="main" class="main-promo">
     <div class="pagetitle">
+       
       <h1><i class="bi bi-grid"></i>&nbsp;Produk</h1>
+       <a href="index.php" class="back">Kembali</a>
     
     </div>
 

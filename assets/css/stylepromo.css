@@ -24,6 +24,12 @@ span.d-none{
   font-size: 16px !important;
   letter-spacing: 1px !important;
 }
+h1{
+  color: black !important;
+}
+h5.card-title{
+  color: black !important;
+}
 /* Sidebar*/
 .sidebar {
   margin-top: 15px;
@@ -268,7 +274,7 @@ p {
   }
   
   .user-profile a:hover{
-    color: #FF8C12;
+    color: black;
     text-decoration: none !important;
   }
   .profile-pic {

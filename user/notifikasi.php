@@ -114,7 +114,7 @@ try {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameGlee's Notification</title>
-  <link rel="stylesheet" href="../assets/css/styleProduk.css">
+  <link rel="stylesheet" href="../assets/css/stylenotifikasi.css">
   <link href="https://code.iconify.design/3/3.1.0/iconify.min.css" rel="stylesheet">
    <!-- Favicons -->
    <link href="../assets/img/Logo_GG2.png" rel="icon" sizes="48x48">

@@ -54,6 +54,13 @@ $pesanan = $result->fetch_all(MYSQLI_ASSOC);
     <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <style>
+      h4{
+            color: black !important;
+            font-family: "slackey", sans-serif !important;
+        }
+        h5{
+          color: black !important;
+        }
         body {
             background-color: #f5f5f5;
         }

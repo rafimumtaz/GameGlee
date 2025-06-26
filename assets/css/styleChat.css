@@ -10,7 +10,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background: linear-gradient(135deg, #000000,#0a0805,#1e160e,#1f170f,#3b2c1d, #744617, #FF8C12, #A67C54, #383a41);
+  background: #fffaec;
   color: #fff;
 }
 
@@ -27,7 +27,7 @@ body {
   padding: 10px 14px;
   flex-direction: column;
   justify-content: space-between;
-  color: #ffffff;
+  color: black;
   letter-spacing: 2px;
 }
 
@@ -45,7 +45,7 @@ li span{
 
 a{
   text-decoration: none;
-  color: #ffffff;
+  color: black;
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -68,7 +68,7 @@ p {
   font-size: 18px;
   justify-content: space-between;
   font-family: 'Slackey', sans-serif;
-  color: #ffffff;
+  color: black;
   margin-top: 6px;
   align-items: center;
 }
@@ -107,7 +107,7 @@ p {
   .search-box {
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #ffffff08, #1e1e1e1d);
+    background: linear-gradient(135deg, black08, #1e1e1e1d);
     border-radius: 10px;
     padding: 5px 20px;
     width: 330px;
@@ -129,7 +129,7 @@ p {
     border: none;
     border-radius: none;
     font-size: 16px;
-    color: #ffffff;
+    color: black;
     background: none;
     background-color: transparent;
     outline: none;
@@ -137,7 +137,7 @@ p {
   }
   
   .animated-text {
-    color: #ffffff;
+    color: black;
     position: absolute;
     pointer-events: none;
     left: 10px;
@@ -189,7 +189,7 @@ p {
   }
   
   .menu-nav ul li a span {
-    color: #ffffff; /* Warna default untuk span */
+    color: black; /* Warna default untuk span */
 }
 
 .menu-nav ul li a.active span {
@@ -213,7 +213,7 @@ p {
     padding: 5px 7px;
     text-decoration: none;
     border-radius: 200px;
-    background-color: #ffffff13;
+    background-color: black13;
     justify-content: space-between;
   }
   
@@ -237,7 +237,7 @@ p {
   
   .user-profile span{
     width: 170px;
-    color: #ffffff;
+    color: black;
   }
   .user-profile li{
     display: flex;
@@ -245,7 +245,7 @@ p {
   }
   
   .user-profile a{
-    color: #ffffff;
+    color: black;
     font-size: 20px;
   }
   
@@ -271,7 +271,7 @@ p {
 
 .container-2{
   border-radius: 20px;
-  background-color: #ffffff;
+  background-color: black;
 }
 
 .list-cht h2 {
@@ -280,7 +280,7 @@ p {
   font-size: 18px;
   letter-spacing: 2px;
   margin: 0;
-  background-color: #ffffff;
+  background-color: black;
 }
 
 .main {
@@ -322,7 +322,7 @@ p {
 
 
 .main .top-chat{
-    background-color: #ffffff;
+    background-color: black;
     display: flex;
     padding: 0px 20px;
 
@@ -330,7 +330,7 @@ p {
 
 .container-3 .top-chat-1{
   font-size: 24px;
-  background-color: #ffffff;
+  background-color:#fff;
   display: flex;
   text-transform: uppercase;
 }
@@ -341,7 +341,7 @@ p {
 .chat-box-1 {
   border-bottom-left-radius: 10px;  /* Border radius hanya di kiri atas */
   border-bottom-right-radius: 10px;
-  background-color: #ffffff1b;
+  background-color: black1b;
   padding: 1rem;
   margin-bottom: 1rem;
   width:500px;
@@ -368,7 +368,10 @@ p {
   max-width: 70%;
   word-wrap: break-word;
 }
-
+.message.bg-light{
+  background-color: #ff8c00;
+  color: #fff;
+}
 .bg-primary {
   background-color: #007bff;
   color: #fff;
@@ -387,7 +390,7 @@ p {
 .chat-box {
     border-bottom-left-radius: 10px;  /* Border radius hanya di kiri atas */
     border-bottom-right-radius: 10px;
-    background-color: #ffffff1b;
+    background-color: black1b;
     padding: 1rem;
     margin-bottom: 1rem;
     width:500px;

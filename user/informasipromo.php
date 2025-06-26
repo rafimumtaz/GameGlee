@@ -33,7 +33,7 @@ $cartSuccess = isset($_GET['cart_success']);
 
 ?>
 
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -49,6 +49,9 @@ $cartSuccess = isset($_GET['cart_success']);
     <style>
         .text{
             color: darkblue;
+        }
+        h1{
+            color: black !important ;
         }
         .promo-card {
             margin-bottom: 20px;
@@ -91,10 +94,10 @@ $cartSuccess = isset($_GET['cart_success']);
     <ul>
       <li><a href="index.php"><span class="humbleicons--dashboard"></span>DASHBOARD</a></li>
       <li><a href="most_favorite.php"><span class="ph--list-heart"></span>MOST FAVORITE ITEM</a></li>
-      <li><a href="informasipromo.php" class="active"><span class="tabler--discount"></span>PROMO</a></li>
+      <li><a href="informasipromo.php"class="active"><span class="tabler--discount"></span>PROMO</a></li>
       <li><a href="forum_komunitas.php"><span class="gg--community"></span>KOMUNITAS</a></li>
       <li><a href="feedback.php"><span class="mdi--feedback-outline"></span>FEEDBACK</a></li>
-      <li><a href="promo.php"><span class="tabler--discount"></span>CODE PROMO</a></li>
+      <li><a href="promo.php" ><span class="tabler--discount"></span>CODE PROMO</a></li>
       <br><br><br><br>
       <li><a href="chat.php"><span class="tdesign--service"></span>CUSTOMER SERVICE</a></li>
       <li><a href="logout.php"><span class="tabler--logout"></span>LOGOUT</a></li>
@@ -128,8 +131,8 @@ $cartSuccess = isset($_GET['cart_success']);
       <ul>
         <li>
           <a href="profil.php"  data-bs-toggle="dropdown">
-            <span class="d-none d-md-block dropdown-toggle ps-2">
-              <i class="bi bi-person"></i>Halo, <?= $_SESSION["user"] ?>!
+            <span>
+              </i>Halo, <?= $_SESSION["user"] ?>!
             </span>
           </a>
         </li>

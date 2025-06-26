@@ -10,8 +10,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background: linear-gradient(135deg, #000000,#0a0805,#1e160e,#1f170f,#3b2c1d, #744617, #FF8C12, #A67C54, #383a41);
-  color: #fff;
+  background: #fffaec !important;
+  color: black;
 }
 
 * {
@@ -32,7 +32,7 @@ body {
   padding: 10px 14px;
   flex-direction: column;
   justify-content: space-between;
-  color: #ffffff;
+  color: black;
   letter-spacing: 2px;
 }
 
@@ -50,7 +50,7 @@ li span{
 
 .sidebar a{
   text-decoration: none;
-  color: #ffffff;
+  color: black;
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -69,11 +69,16 @@ a.active {
   display: flex;
 }
 
+
+.sidebar header .top{
+  display: flex;
+}
+
 p {
   font-size: 18px;
   justify-content: space-between;
   font-family: 'Slackey', sans-serif;
-  color: #ffffff;
+  color: black;
   margin-top: 6px;
   align-items: center;
 }
@@ -115,7 +120,7 @@ p {
   .search-box {
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #ffffff08, #1e1e1e1d);
+    background: linear-gradient(135deg, black08, #1e1e1e1d);
     border-radius: 10px;
     padding: 5px 20px;
     width: 330px;
@@ -137,7 +142,7 @@ p {
     border: none;
     border-radius: none;
     font-size: 16px;
-    color: #ffffff;
+    color: black;
     background: none;
     background-color: transparent;
     outline: none;
@@ -145,7 +150,7 @@ p {
   }
   
   .animated-text {
-    color: #ffffff;
+    color: black;
     position: absolute;
     pointer-events: none;
     left: 10px;
@@ -216,12 +221,12 @@ p {
   }
   
   .menu-nav span:hover {
-    background-color: #ff8c00;
+    background-color: black;
   }
   
   
   .menu-nav ul li a span {
-    color: #ffffff; /* Warna default untuk span */
+    color: black; /* Warna default untuk span */
   }
   
   .menu-nav ul li a.active span {
@@ -246,7 +251,7 @@ p {
   
   .user-profile span{
     width: 200px;
-    color: #ffffff;
+    color: black;
     text-decoration: none;
   }
   .user-profile li{
@@ -255,12 +260,12 @@ p {
   }
   
   .user-profile a{
-    color: #ffffff;
+    color: black;
     font-size: 20px;
   }
   
   .user-profile a:hover{
-    color: #ff8c00;
+    color: black;
   }
   .profile-pic {
     width: 30px;
@@ -451,7 +456,7 @@ p {
 .collapse h6 {
     font-size: 20px;
     text-transform: uppercase;
-    color: #ff8c00;
+    color: black;
     font-weight: bold;
     letter-spacing: 2px;
     margin-top: 10px;

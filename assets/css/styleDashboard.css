@@ -10,8 +10,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background: linear-gradient(135deg, #000000,#0a0805,#1e160e,#1f170f,#3b2c1d, #744617, #FF8C12, #A67C54, #383a41) !important;
-  color: #fff !important;
+  background: #fffaec !important;
+  color: black !important;
 }
 
 /* Sidebar*/
@@ -27,7 +27,7 @@ body {
   padding: 10px 14px;
   flex-direction: column;
   justify-content: space-between;
-  color: #ffffff;
+  color: black;
   letter-spacing: 2px;
 }
 
@@ -50,7 +50,7 @@ span.d-none{
 
 a{
   text-decoration: none;
-  color: #ffffff;
+  color: black;
   display: flex;
   align-items: center;
   font-size: 15px;
@@ -74,7 +74,7 @@ p {
   font-size: 18px;
   justify-content: space-between;
   font-family: 'Slackey', sans-serif;
-  color: #ffffff;
+  color: black;
   margin-top: 6px;
   align-items: center;
 }
@@ -140,7 +140,7 @@ p {
 /* Gaya input text */
 .search-container .form-control {
   border-radius: 20px 0px 0px 20px;
-  background: #ffffff;
+  background: black;
   border: none;
   padding: 10px 15px; /* Padding untuk kenyamanan */
   flex-grow: 1; /* Agar input mengisi ruang yang tersedia */
@@ -207,7 +207,7 @@ p {
   border: 1px solid #ddd;
   border-radius: 8px;
   margin-bottom: 10px;
-  background-color: #ffffff;
+  background-color: black;
   text-decoration: none; /* Hilangkan garis bawah pada tautan */
   color: inherit; /* Warna teks mengikuti konteks */
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -741,20 +741,7 @@ textarea {
   opacity: 0.5; /* Menurunkan opacity atau bisa disembunyikan sepenuhnya */
 }
 
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 290px; /* Sesuaikan dengan lebar sidebar */
-  width: calc(99% - 290px);
-  background: transparent;
-  backdrop-filter: blur(10px);
-  height: 77px;
-  z-index: 1000;
-  padding: 10px 10px;
-  justify-content: space-between;
-  display: flex;
-  align-items: center;
-}
+
 
 .search-box {
   display: flex;
@@ -781,7 +768,7 @@ textarea {
   border: none;
   border-radius: none;
   font-size: 16px;
-  color: #ffffff;
+  color: black;
   background: none;
   background-color: transparent;
   outline: none;
@@ -789,7 +776,7 @@ textarea {
 }
 
 .animated-text {
-  color: #ffffff;
+  color: black;
   position: absolute;
   pointer-events: none;
   left: 10px;
@@ -850,7 +837,7 @@ textarea {
 .menu-nav li a {
   flex-direction: column;
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 5px 7px;
   text-decoration: none;
@@ -865,11 +852,11 @@ textarea {
 
 
 .menu-nav ul li a span {
-  color: #ffffff; /* Warna default untuk span */
+  color: black; /* Warna default untuk span */
 }
 
 .menu-nav ul li a.active span {
-  color: #fff; /* Warna teks aktif hanya untuk span */
+  color: black; /* Warna teks aktif hanya untuk span */
   background-color: #FF8C12; /* Opsional, jika ingin latar belakang */
   font-weight: bold; /* Opsional, jika ingin teks tebal */
 }
@@ -880,7 +867,20 @@ textarea {
   display: flex;
   align-items: center center;
 }
-
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 290px; /* Sesuaikan dengan lebar sidebar */
+  width: calc(99% - 290px);
+  background: transparent;
+  backdrop-filter: blur(10px);
+  height: 77px;
+  z-index: 1000;
+  padding: 10px 10px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
 .topbar p{
   font-family: 'Smythe', sans-serif;  
   background-color: none;
@@ -890,7 +890,7 @@ textarea {
 
 .user-profile span{
   width: 200px;
-  color: #ffffff;
+  color: black;
 }
 .user-profile li{
   display: flex;
@@ -898,7 +898,7 @@ textarea {
 }
 
 .user-profile a{
-  color: #ffffff;
+  color: black;
   font-size: 20px;
 }
 
@@ -1170,7 +1170,7 @@ textarea {
 .text-box ul li a {
   text-decoration: none; /* Menghilangkan garis bawah pada link */
   font-size: 25px;
-  color: #ffffff; /* Warna teks link */
+  color: black; /* Warna teks link */
   font-weight: 24px; /* Opsional: Menebalkan teks link */
   transition: color 0.3s; /* Animasi pada hover */
   letter-spacing: 2px;
@@ -1504,7 +1504,9 @@ textarea.comment-input::placeholder {
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
-
+ul.desc{
+  color: black !important;
+}
 .tdesign--service {
   display: inline-block;
   width: 30px;

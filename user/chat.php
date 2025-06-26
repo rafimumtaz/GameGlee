@@ -61,9 +61,9 @@ $result = mysqli_query($kon, $query);
       <li><a href="informasipromo.php"><span class="tabler--discount"></span>PROMO</a></li>
       <li><a href="forum_komunitas.php"><span class="gg--community"></span>KOMUNITAS</a></li>
       <li><a href="feedback.php"><span class="mdi--feedback-outline"></span>FEEDBACK</a></li>
-      <li><a href="promo.php"><span class="tabler--discount"></span>CODE PROMO</a></li>
-      <br><br><br><br>
-      <li><a href="chat.php"><span class="tdesign--service"></span>CUSTOMER SERVICE</a></li>
+      <li><a href="promo.php" ><span class="tabler--discount"></span>CODE PROMO</a></li>
+      <br><br><br>
+      <li><a href="chat.php"class="active"><span class="tdesign--service"></span>CUSTOMER SERVICE</a></li>
       <li><a href="logout.php"><span class="tabler--logout"></span>LOGOUT</a></li>
     </ul>
     </header>

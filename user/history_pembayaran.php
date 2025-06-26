@@ -125,6 +125,15 @@ if ($row_enum) {
    
 </head>
 <body>
+    <style>
+        h1{
+            color: black !important;
+            font-family: "slackey", sans-serif !important;
+        }
+        h2{
+            color: black !important;
+        }
+    </style>
    <!-- Sidebar -->
    <div class="sidebar">
     <header>

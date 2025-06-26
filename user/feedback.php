@@ -48,7 +48,7 @@ if (mysqli_num_rows($feedbacks) == 0) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameGlee's Feedback</title>
-  <link rel="stylesheet" href="../assets/css/styleProduk.css">
+  <link rel="stylesheet" href="../assets/css/stylefeedback.css">
   <link href="https://code.iconify.design/3/3.1.0/iconify.min.css" rel="stylesheet">
    <!-- Favicons -->
    <link href="../assets/img/Logo_GG2.png" rel="icon" sizes="48x48">

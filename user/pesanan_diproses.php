@@ -47,6 +47,13 @@ $pesanan = $result->fetch_all(MYSQLI_ASSOC);
         body {
             background-color: #f5f5f5;
         }
+        h4{
+            color: black !important;
+            font-family: "slackey", sans-serif !important;
+        }
+        h5{
+          color: black !important;
+        }
         .card {
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

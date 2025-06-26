@@ -67,6 +67,11 @@ $nama_bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "
     <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
+    <style>
+        th{
+            color: black !important;
+        }
+    </style>
    <!-- Sidebar -->
    <div class="sidebar">
     <header>
@@ -76,15 +81,15 @@ $nama_bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "
       </span>
       <div><p>GAMEGLEE</p></div>
     </div>
-    <ul class="sidebar" style="color:#fff;">
+    <ul>
       <li><a href="index.php"><span class="humbleicons--dashboard"></span>DASHBOARD</a></li>
-      <li><a href="history_pembayaran.php"><span class="ic--twotone-history"></span>HISTORY PEMBELIAN</a></li>
-      <li><a href="pesanan_diproses.php"><span class="hugeicons--package-process"></span>MENUNGGU DIKIRIM</a></li>
-      <li><a href="pesanan_dikirim.php"><span class="carbon--delivery-parcel"></span>PESANAN DIKIRIM</a></li>
-      <li><a href="pesanan_selesai.php"><span class="mdi--package-variant-closed-check"></span>PESANAN SELESAI</a></li>
-      <li><a href="pesanan_dibatalkan.php"><span class="material-symbols--cancel-outline"></span>PESANAN DIBATALKAN</a></li>
-      <li><a href="pengeluaran.php" class="active"><span class="tabler--report-money"></span>PENGELUARAN USER</a></li>
+      <li><a href="most_favorite.php" class="active"><span class="ph--list-heart"></span>MOST FAVORITE ITEM</a></li>
+      <li><a href="informasipromo.php"><span class="tabler--discount"></span>PROMO</a></li>
+      <li><a href="forum_komunitas.php"><span class="gg--community"></span>KOMUNITAS</a></li>
+      <li><a href="feedback.php"><span class="mdi--feedback-outline"></span>FEEDBACK</a></li>
+      <li><a href="promo.php"><span class="tabler--discount"></span>CODE PROMO</a></li>
       <br><br><br><br>
+      <li><a href="chat.php"><span class="tdesign--service"></span>CUSTOMER SERVICE</a></li>
       <li><a href="logout.php"><span class="tabler--logout"></span>LOGOUT</a></li>
     </ul>
     </header>

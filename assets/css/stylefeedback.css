@@ -14,7 +14,9 @@ body {
   background: #fffaec !important;
   color: black;
 }
-
+h5.card-title{
+  color: black !important;
+}
 * {
     font-family: 'Smythe', sans-serif;
     text-decoration: none;
@@ -160,7 +162,16 @@ p {
     white-space: nowrap;
     z-index: 1;
   }
-  
+  h1{
+    color: black !important;
+  }
+  .accordion-item{
+    margin-top: 20px !important;
+  }
+  button.accordion-button{  
+    color: #ffff !important;
+    background-color: orange !important;
+  }
   /* close button */
   .close-button {
     background-color: transparent;
@@ -268,7 +279,7 @@ p {
   }
   
   .user-profile a:hover{
-    color: #FF8C12;
+    color: black;
     text-decoration: none !important;
   }
   .profile-pic {

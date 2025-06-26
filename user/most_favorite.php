@@ -33,6 +33,7 @@ $result = mysqli_query($kon, $query);
    <link href="../assets/img/Logo_GG2.png" rel="icon" sizes="48x48">
 </head>
 <body>
+  
    <!-- Sidebar -->
    <div class="sidebar">
     <header>

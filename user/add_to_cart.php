@@ -106,10 +106,16 @@ if (isset($_POST['checkout']) && isset($_POST['selected_items'])) {
         .table td {
     padding: 10px;
     text-align: center;
-    color: #fff;
+    color: black;
+    }
+    th{
+        color: black !important;
     }
     h4{
-        color: #fff;
+        color: black;
+    }
+    h1{
+        color: black !important;
     }
     </style>
 </head>
@@ -288,6 +294,7 @@ if (isset($_POST['checkout']) && isset($_POST['selected_items'])) {
             });
         });
     </script>
+    
     <script src="../assets/js/index.js"></script>
 </body>
 </html>

@@ -19,7 +19,9 @@ body {
     font-family: 'Smythe', sans-serif;
     text-decoration: none;
 }
-
+h2{
+  color: black !important;
+}
 span.d-none{
   font-size: 16px !important;
   letter-spacing: 1px !important;
@@ -268,7 +270,7 @@ p {
   }
   
   .user-profile a:hover{
-    color: #FF8C12;
+    color: black;
     text-decoration: none !important;
   }
   .profile-pic {
