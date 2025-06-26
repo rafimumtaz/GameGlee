@@ -77,7 +77,6 @@ $query_topik = mysqli_query($kon, "
     <ul>
     <ul>
       <li><a href="index.php" ><span class="humbleicons--dashboard"></span>DASHBOARD</a></li>
-      <li><a href="user.php"><span class="ph--user-list-bold"></span>DAFTAR USER</a></li>
       <li><a href="informasipromo.php"><span class="tabler--discount"></span>INFORMASI PROMO</a></li>
       <li><a href="penjualan.php"><span class="icon-park-outline--sales-report"></span>TOTAL PENJUALAN</a></li>
       <li><a href="order.php"><span class="lsicon--work-order-abnormal-outline"></span>ORDER MASUK</a></li>

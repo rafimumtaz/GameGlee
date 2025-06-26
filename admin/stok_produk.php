@@ -13,7 +13,7 @@ $sqlStats = "
     SELECT 
         COUNT(id_produk) AS total_produk, 
         SUM(CASE WHEN stok = 0 THEN 1 ELSE 0 END) AS unavailable_produk,
-        (SELECT SUM(jumlah) FROM pesanan WHERE status_pesanan != 'Dibatalkan') AS total_terjual
+        (SELECT SUM(pd.jumlah) FROM pesanan_detail pd JOIN pesanan p ON pd.id_pesanan = p.id_pesanan WHERE p.status_pesanan != 'Dibatalkan') AS total_terjual
     FROM produk
 ";
 $resultStats = mysqli_query($kon, $sqlStats);
@@ -28,7 +28,7 @@ $sqlProducts = "
         p.id_produk, 
         p.nama_produk, 
         p.stok, 
-        (SELECT SUM(jumlah) FROM pesanan WHERE id_produk = p.id_produk AND status_pesanan != 'Dibatalkan') AS total_terjual, 
+        (SELECT SUM(pd.jumlah) FROM pesanan_detail pd JOIN pesanan p ON pd.id_pesanan = p.id_pesanan WHERE p.status_pesanan != 'Dibatalkan' AND pd.id_produk = p.id_produk) AS total_terjual, 
         (SELECT AVG(rating) FROM review_produk WHERE id_produk = p.id_produk) AS rata_rating 
     FROM produk p
 ";
@@ -85,7 +85,6 @@ $products = mysqli_fetch_all($resultProducts, MYSQLI_ASSOC);
     </div>
     <ul>
       <li><a href="index.php" ><span class="humbleicons--dashboard"></span>DASHBOARD</a></li>
-      <li><a href="user.php"><span class="ph--user-list-bold"></span>DAFTAR USER</a></li>
       <li><a href="informasipromo.php"><span class="tabler--discount"></span>INFORMASI PROMO</a></li>
       <li><a href="penjualan.php"><span class="icon-park-outline--sales-report"></span>TOTAL PENJUALAN</a></li>
       <li><a href="order.php" ><span class="lsicon--work-order-abnormal-outline"></span>ORDER MASUK</a></li>

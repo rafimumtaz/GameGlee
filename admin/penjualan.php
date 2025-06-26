@@ -35,15 +35,17 @@ $conditions .= " $date_filter";
 
 // Hitung total pendapatan
 $total_query = "SELECT SUM(p.total_harga) AS total_pendapatan 
-                FROM pesanan p
+                FROM pesanan_detail pd
+                JOIN pesanan p ON pd.id_pesanan = p.id_pesanan
                 WHERE $conditions";
 $total_stmt = $pdo->query($total_query);
 $total_pendapatan = $total_stmt->fetch(PDO::FETCH_ASSOC)['total_pendapatan'] ?? 0;
 
 // Query data pesanan
-$query = "SELECT pr.nama_produk, p.tanggal_pesanan, p.jumlah, pr.harga, p.total_harga 
-          FROM pesanan p
-          JOIN produk pr ON p.id_produk = pr.id_produk
+$query = "SELECT pr.nama_produk, p.tanggal_pesanan, pd.jumlah, pr.harga, p.total_harga 
+          FROM pesanan_detail pd
+          JOIN produk pr ON pd.id_produk = pr.id_produk
+          JOIN pesanan p ON pd.id_pesanan = p.id_pesanan
           WHERE $conditions
           ORDER BY p.tanggal_pesanan DESC";
 $stmt = $pdo->query($query);
@@ -80,7 +82,6 @@ $pesanan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <ul>
       <li><a href="index.php" ><span class="humbleicons--dashboard"></span>DASHBOARD</a></li>
-      <li><a href="user.php"><span class="ph--user-list-bold"></span>DAFTAR USER</a></li>
       <li><a href="informasipromo.php"><span class="tabler--discount"></span>INFORMASI PROMO</a></li>
       <li><a href="penjualan.php" class="active"><span class="icon-park-outline--sales-report"></span>TOTAL PENJUALAN</a></li>
       <li><a href="order.php"><span class="lsicon--work-order-abnormal-outline"></span>ORDER MASUK</a></li>

@@ -72,7 +72,6 @@ $top_products = mysqli_fetch_all($top_products_query, MYSQLI_ASSOC);
     </div>
     <ul>
       <li><a href="index.php" ><span class="humbleicons--dashboard"></span>DASHBOARD</a></li>
-      <li><a href="user.php"><span class="ph--user-list-bold"></span>DAFTAR USER</a></li>
       <li><a href="informasipromo.php"><span class="tabler--discount"></span>INFORMASI PROMO</a></li>
       <li><a href="penjualan.php" class="active"><span class="icon-park-outline--sales-report"></span>TOTAL PENJUALAN</a></li>
       <li><a href="order.php" ><span class="lsicon--work-order-abnormal-outline"></span>ORDER MASUK</a></li>

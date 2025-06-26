@@ -25,9 +25,10 @@ $status_filter = isset($_GET['status']) ? $_GET['status'] : '';
 // Query untuk menampilkan daftar pesanan dengan join tabel user dan produk
 $query = "SELECT p.id_pesanan, u.nama AS customer_name, pr.nama_produk, 
                  p.tanggal_pesanan, p.total_harga, p.status_pesanan
-          FROM pesanan p
+          FROM pesanan_detail pd
+            JOIN pesanan p ON pd.id_pesanan = p.id_pesanan
           JOIN user u ON p.id_user = u.id_user
-          JOIN produk pr ON p.id_produk = pr.id_produk";
+          JOIN produk pr ON pd.id_produk = pr.id_produk";
 
 if (!empty($status_filter)) {
     $query .= " WHERE p.status_pesanan = :status";
@@ -73,7 +74,6 @@ $pesanan = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <ul>
       <li><a href="index.php" ><span class="humbleicons--dashboard"></span>DASHBOARD</a></li>
-      <li><a href="user.php"><span class="ph--user-list-bold"></span>DAFTAR USER</a></li>
       <li><a href="informasipromo.php"><span class="tabler--discount"></span>INFORMASI PROMO</a></li>
       <li><a href="penjualan.php"><span class="icon-park-outline--sales-report"></span>TOTAL PENJUALAN</a></li>
       <li><a href="order.php" class="active"><span class="lsicon--work-order-abnormal-outline"></span>ORDER MASUK</a></li>
